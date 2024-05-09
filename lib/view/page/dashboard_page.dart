@@ -23,7 +23,7 @@ class DashboardPage extends StatelessWidget {
                     onPressed: () {
                       Navigator.pushNamed(context, 'new_Chat');
                     },
-                    icon: const Icon(CupertinoIcons.plus, color: Colors.white))
+                    icon: const Icon(CupertinoIcons.person_badge_plus, color: Colors.white))
               ],
               backgroundColor: Colors.purple.shade400,
               title: Text(

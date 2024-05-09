@@ -26,9 +26,7 @@ class DatabaseRepo {
             sender_id INTEGER,
             receiver_id INTEGER,
             message TEXT NOT NULL,
-            timestamp INTEGER,
-            FOREIGN KEY (sender_id) REFERENCES users(id),
-            FOREIGN KEY (receiver_id) REFERENCES users(id)
+            timestamp TEXT
           )
         ''');
       },

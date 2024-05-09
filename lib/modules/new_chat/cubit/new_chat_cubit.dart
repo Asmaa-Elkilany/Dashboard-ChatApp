@@ -29,8 +29,8 @@ class NewChatCubit extends Cubit<NewChatState> {
 
   Future<void> addPerson(context) async {
     DatabaseRepo db = DatabaseRepo();
-    db.initDB();
-    db.insertUser(
+    await db.initDB();
+    await db.insertUser(
       nameController.text,
       await image!.readAsBytes(),
     );

@@ -30,25 +30,28 @@ class UserItemWidget extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                      const Column(
+                       Column(
                       children: [
-                      CircleAvatar(
+                        Text(usersModel.image!.length.toString()),
+                  /*    CircleAvatar(
                           radius: 25,
                           backgroundImage: AssetImage("images/profile.jpg"),
                         )
-,
-/*
+                        usersModel.image== null ? CircleAvatar(
+                  radius: 25,
+                  backgroundImage: AssetImage("images/profile.jpg"),
+                ):*/
                         ClipRRect(
                           borderRadius: BorderRadius.circular(25),
                           child: Image.memory(
-                            usersModel.image ?? Uint8List(5),
+                            usersModel.image!,
                             height: 50,
                             width: 50,
                             fit: BoxFit.fill,
                           ),
                         ),
 
-*/
+
                       ],
                     ),
                   //  Image.memory()
