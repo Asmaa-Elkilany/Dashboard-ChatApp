@@ -7,3 +7,4 @@ This is a simple Dashboard for a chatting app, it contains 3 features which are 
 
 ![Screenshot from 2024-05-02 22-20-32](https://github.com/Asmaa-Elkilany/Dashboard-ChatApp/assets/167666939/fab46dc5-accb-45de-8e3b-57b3e1e1d921)
 
+![Screenshot from 2024-05-10 01-00-32](https://github.com/Asmaa-Elkilany/Dashboard-ChatApp/assets/167666939/f701cee9-efe8-4df4-9927-cac57c30145b)
