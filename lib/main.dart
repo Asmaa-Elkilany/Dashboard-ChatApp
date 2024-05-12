@@ -20,19 +20,20 @@ void main() {
       activeTheme = purpleTheme;
     }
   });
-  final themeNotifier = Provider.of<ThemeNotifier>(context);
+
+  //final themeNotifier = Provider.of<ThemeNotifier>(context);
   MaterialApp materialApp = MaterialApp(
     debugShowCheckedModeBanner: false,
    // home: DashboardPage(),
     onGenerateInitialRoutes: (_)=> MyRoute.initialRoutes,
     onGenerateRoute: MyRoute.onNavigateByName,
-   // theme: ThemeData(primaryColor: Colors.purple),
-    theme: themeNotifier.getTheme,
+    theme: ThemeData(primaryColor: Colors.purple),
+   // theme: themeNotifier.getTheme,
   );
   runApp(
       MultiProvider(
        providers: [
-       ChangeNotifierProvider(create: (context)=>ThemeNotifier(activeTheme!)),
+       ChangeNotifierProvider(create: (context)=>ThemeNotifier(darkTheme)),
       ],
           child: materialApp));
 }

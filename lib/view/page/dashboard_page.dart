@@ -15,8 +15,8 @@ class DashboardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeNotifier = Provider.of<ThemeNotifier>(context);
-    theme: themeNotifier.getTheme,
+   // final themeNotifier = Provider.of<ThemeNotifier>(context);
+  //  theme: themeNotifier.getTheme,
 
     return BlocProvider(
       create: (context) => DashboardCubit(),
