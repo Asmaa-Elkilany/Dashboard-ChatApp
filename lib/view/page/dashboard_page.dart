@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
-import '../../modules/settings/view/themenotifier.dart';
 
 class DashboardPage extends StatelessWidget {
   final List<String> titles = const ['Chats', 'Favourites', 'Settings'];
@@ -15,9 +14,6 @@ class DashboardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   // final themeNotifier = Provider.of<ThemeNotifier>(context);
-  //  theme: themeNotifier.getTheme,
-
     return BlocProvider(
       create: (context) => DashboardCubit(),
       child: BlocBuilder<DashboardCubit, DashboardState>(
@@ -30,9 +26,9 @@ class DashboardPage extends StatelessWidget {
                     onPressed: () {
                       Navigator.pushNamed(context, 'new_Chat');
                     },
-                    icon: const Icon(CupertinoIcons.person_badge_plus, color: Colors.white))
+                    icon: const Icon(CupertinoIcons.person_badge_plus))
               ],
-              backgroundColor: Theme.of(context).primaryColor,
+
               title: Text(
               titles [cubit.currentIndex],
           ),
@@ -47,7 +43,6 @@ class DashboardPage extends StatelessWidget {
               ],
             ),
             bottomNavigationBar: BottomNavigationBar(
-              selectedItemColor: Theme.of(context).primaryColor.withOpacity(.8),
               currentIndex: cubit.currentIndex,
               onTap: cubit.onChangeTab,
               items: const [

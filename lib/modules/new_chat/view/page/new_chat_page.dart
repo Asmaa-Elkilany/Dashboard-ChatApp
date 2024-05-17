@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:dashboard/core/extentions/build_context_extension.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,9 +19,7 @@ class NewChatPage extends StatelessWidget {
           final NewChatCubit cubit = context.read<NewChatCubit>();
           return Scaffold(
             appBar: AppBar(
-              backgroundColor: Theme.of(context).primaryColor,
               title: const Text('Add new Profile'),
-
             ),
 
             body: Column(
@@ -54,7 +53,8 @@ class NewChatPage extends StatelessWidget {
                   ),
 
                 const Spacer(),
-                TextButton(onPressed: () => cubit.addPerson(context), child: const Text("Add Person"))
+                TextButton(onPressed: () => cubit.addPerson(context),
+                    child:  Text("Add Person",style:context.getTheme.textTheme.bodyLarge))
               ],
             ),
           );

@@ -1,87 +1,68 @@
-import 'package:dashboard/modules/settings/view/color.dart';
-import 'package:dashboard/modules/settings/view/themenotifier.dart';
+import 'package:dashboard/core/cubit/parent_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:group_radio_button/group_radio_button.dart';
-import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:dashboard/core/extentions/build_context_extension.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 class SettingsPage extends StatefulWidget {
-  const SettingsPage({super.key});
+  const SettingsPage({Key? key}) : super(key: key);
 
   @override
-  State<SettingsPage> createState() => _SettingsPageState();
+  _SettingsPageState createState() => _SettingsPageState();
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  String _selectedColor= " Purple";
-  List<String> _colors =["Dark","Light","Purple"];
-void onThemeChange(String value, ThemeNotifier themeNotifier) async{
-  if (value=="Dark") {
-    themeNotifier = themeNotifier.setTheme (darkTheme);
-  }else if (value=="Light"){
-    themeNotifier = themeNotifier.setTheme (lightTheme);
-  }else{
-    themeNotifier = themeNotifier.setTheme (purpleTheme);
-  }
-  final pref = await SharedPreferences.getInstance();
-  pref.setString("ThemeMode", value);
-}
-
-
   @override
   Widget build(BuildContext context) {
-  final themeNotifier =Provider.of<ThemeNotifier>(context);
-  themeNotifier.getTheme;
-
-    return Scaffold(
-    body: Container(child: Center(
-    child: MaterialButton(
-    color:Theme.of(context).primaryColor,
-    onPressed: () {
-           themChangeDialog(themeNotifier);
-    },
-    child: const Text("Change Theme", style: TextStyle(color: Colors.white),))))
-    ); // Scaffold
-
-  }
-
-  themChangeDialog(ThemeNotifier themeNotifier) {
-    showDialog(
-        context: context,
-        builder: (_) => StatefulBuilder(
-        builder: (BuildContext context, StateSetter setState) {
-           return AlertDialog(
-           content: Container(
-           height: 250,
-            child: Column(mainAxisAlignment: MainAxisAlignment.center,
-             crossAxisAlignment: CrossAxisAlignment.center,
-             children: [
-               RadioGroup<String>.builder(
-                   groupValue: _selectedColor,
-                   onChanged: (val) {
-                     setState(() {
-                       _selectedColor = val!;
-                     });
-                     onThemeChange(_selectedColor,themeNotifier);
-                     print(_selectedColor);
-                   },
-                   items: _colors,
-                   itemBuilder: (item) => RadioButtonBuilder(item)
-               ),
-
-             ],
+    return BlocProvider(
+      create: (context) => ParentCubit(),
+      child: BlocBuilder<ParentCubit, ParentState>(
+        builder: (context, state) {
+          return Scaffold(
+            body: Center(  // Centering the Row within the Scaffold
+              child: Padding(  // Adding padding around the Row
+                padding: const EdgeInsets.all(16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,  // Centering the buttons within the Row
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          ParentCubit.instance.changeMode();
+                        },
+                        child: const Text(
+                          "Change Theme",
+                          style: TextStyle(
+                            color: Colors.white,
+                            height: 5,
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          ParentCubit.instance.changelang();
+                        },
+                        child: const Text(
+                          "Change Language",
+                          style: TextStyle(
+                            color: Colors.white,
+                            height: 5,
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-          ),
-        actions: [
-          MaterialButton(
-            child: const Text("Close"),
-            onPressed: () {
-              Navigator.of (context).pop(true);
-            },
-          ),
-        ],
-      );
-           },
-    ),
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }
