@@ -73,7 +73,9 @@ class UserItemWidget extends StatelessWidget {
                     const Spacer(),
                      Column(
                       children: [
-                       Text( "Date", style: context.getTheme.textTheme.bodyLarge ),
+                       Text('time_of_message'.tr(context),
+                        style: context.getTheme.textTheme.bodyLarge
+                       ),
                       ],
                     ),
 

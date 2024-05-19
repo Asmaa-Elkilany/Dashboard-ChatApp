@@ -19,7 +19,7 @@ class NewChatPage extends StatelessWidget {
           final NewChatCubit cubit = context.read<NewChatCubit>();
           return Scaffold(
             appBar: AppBar(
-              title: const Text('Add new Profile'),
+              title:  Text('Add_Profile'.tr(context)),
             ),
 
             body: Column(
@@ -28,7 +28,7 @@ class NewChatPage extends StatelessWidget {
                  const SizedBox(
                    height: 10,
                  ),
-                const Text('Name'),
+                 Text('Name'.tr(context),style:context.getTheme.textTheme.bodyLarge),
                 TextFormField(
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   keyboardType: TextInputType.name,
@@ -54,7 +54,7 @@ class NewChatPage extends StatelessWidget {
 
                 const Spacer(),
                 TextButton(onPressed: () => cubit.addPerson(context),
-                    child:  Text("Add Person",style:context.getTheme.textTheme.bodyLarge))
+                    child:  Text('Add_person'.tr(context),style:context.getTheme.textTheme.bodyLarge))
               ],
             ),
           );

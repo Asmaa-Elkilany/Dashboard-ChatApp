@@ -46,20 +46,20 @@ class ChatWidget extends StatelessWidget {
                 Expanded(
                   child: TextField(
                     onChanged: (value) {},
-                    decoration: const InputDecoration(
-                      contentPadding: EdgeInsets.symmetric(
+                    decoration:  InputDecoration(
+                      contentPadding: const EdgeInsets.symmetric(
                         vertical: 10,
                         horizontal: 20,
                       ),
-                      hintText: "Write your message here....",
+                      hintText: 'Write_your_message_here'.tr(context),
                       border: InputBorder.none,
                     ),
                   ),
                 ),
                 TextButton(
                   onPressed: () {},
-                  child: const Text(
-                    'Send'),
+                  child: Text(
+                    'Send'.tr(context)),
                   ),
               ],
             ),

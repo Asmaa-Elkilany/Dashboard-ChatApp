@@ -1,10 +1,10 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class MyTheme {
   static final MyTheme instance = MyTheme();
+
   ThemeData light = ThemeData.light(useMaterial3: true).copyWith(
     appBarTheme: const AppBarTheme(
       color: Colors.purple,
@@ -65,6 +65,7 @@ class MyTheme {
         ),
       )
   );
+
   ThemeData dark = ThemeData.dark(useMaterial3: true).copyWith(
       appBarTheme:  AppBarTheme(
         color: Colors.deepPurple.shade900,

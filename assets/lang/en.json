@@ -2,5 +2,15 @@
 
 {
   "chat_page_title": "Conversation",
-  "Add_Profile": "Add New Profile"
+  "Add_Profile": "Add New Profile",
+  "time_of_message": "Date",
+  "Chats": "Chats",
+  "Favourites": "Pin Conversation",
+  "Settings": "Settings",
+  "Add_person": "Add Person",
+  "Name": "Name",
+  "Send": "Send",
+  "Write_your_message_here": "Write your message here....",
+  "Change_Theme": "Change Theme",
+  "Change_lang": "Change Language"
 }

@@ -2,7 +2,6 @@
 import 'dart:typed_data';
 
 import 'package:dashboard/core/extentions/build_context_extension.dart';
-import 'package:dashboard/modules/chats/contoller/chats_cubit.dart';
 import 'package:dashboard/modules/chats/model/entity_model/users_model.dart';
 import 'package:dashboard/modules/favorite/contoller/favourite_cubit.dart';
 import 'package:flutter/cupertino.dart';
@@ -81,7 +80,7 @@ class FavoriteItemWidget extends StatelessWidget {
                     const Spacer(),
                      Column(
                       children: [
-                       Text( "Date" ,style: context.getTheme.textTheme.bodyLarge,),
+                       Text( 'time_of_message'.tr(context),style: context.getTheme.textTheme.bodyLarge,),
 
                       ],
                     ),

@@ -1,3 +1,4 @@
+import 'package:dashboard/core/extentions/build_context_extension.dart';
 import 'package:dashboard/cubit/dashboard_cubit.dart';
 import 'package:dashboard/modules/chats/view/page/chats_page.dart';
 import 'package:dashboard/modules/favorite/view/page/favorite_page.dart';
@@ -5,11 +6,8 @@ import 'package:dashboard/modules/settings/view/settings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:provider/provider.dart';
-
 
 class DashboardPage extends StatelessWidget {
-  final List<String> titles = const ['Chats', 'Favourites', 'Settings'];
   const DashboardPage({super.key});
 
   @override
@@ -19,19 +17,24 @@ class DashboardPage extends StatelessWidget {
       child: BlocBuilder<DashboardCubit, DashboardState>(
         builder: (context, state) {
           DashboardCubit cubit = context.read<DashboardCubit>();
+
+          final List<String> titles = [
+            'Chats'.tr(context),
+            'Favourites'.tr(context),
+            'Settings'.tr(context)
+          ];
+
           return Scaffold(
             appBar: AppBar(
               actions: [
                 IconButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, 'new_Chat');
-                    },
-                    icon: const Icon(CupertinoIcons.person_badge_plus))
+                  onPressed: () {
+                    Navigator.pushNamed(context, 'new_Chat');
+                  },
+                  icon: const Icon(CupertinoIcons.person_badge_plus),
+                ),
               ],
-
-              title: Text(
-              titles [cubit.currentIndex],
-          ),
+              title: Text(titles[cubit.currentIndex]),
             ),
             body: PageView(
               controller: cubit.pageController,
@@ -45,16 +48,21 @@ class DashboardPage extends StatelessWidget {
             bottomNavigationBar: BottomNavigationBar(
               currentIndex: cubit.currentIndex,
               onTap: cubit.onChangeTab,
-              items: const [
+              items: [
                 BottomNavigationBarItem(
-                    icon: Icon(CupertinoIcons.person), label: 'Chats'),
+                  icon: const Icon(CupertinoIcons.person),
+                  label: 'Chats'.tr(context),
+                ),
                 BottomNavigationBarItem(
-                    icon: Icon(CupertinoIcons.heart), label: 'Favourites'),
+                  icon: const Icon(CupertinoIcons.heart),
+                  label: 'Favourites'.tr(context),
+                ),
                 BottomNavigationBarItem(
-                    icon: Icon(CupertinoIcons.settings), label: 'Settings')
+                  icon: const Icon(CupertinoIcons.settings),
+                  label: 'Settings'.tr(context),
+                ),
               ],
             ),
-
           );
         },
       ),

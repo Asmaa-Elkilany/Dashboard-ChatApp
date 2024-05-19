@@ -1,6 +1,14 @@
-
-
 {
   "chat_page_title": "المحادثة",
-  "Add_Profile": "اضافة جهة اتصال"
+  "Add_Profile": "اضافة جهة اتصال",
+  "time_of_message": "التاريخ",
+  "Chats": "المحادثات",
+  "Favourites": "محادثات مثبتة",
+  "Settings": "الاعدادات",
+  "Add_person": "اضافة شخص",
+  "Name": "الاسم",
+  "Send": "ارسال",
+  "Write_your_message_here": "اكتب رسالتك هنا....",
+  "Change_Theme": "تغيير المظهر",
+  "Change_lang": "تغيير اللغة"
 }

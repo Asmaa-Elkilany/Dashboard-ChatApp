@@ -1,5 +1,4 @@
 
-import 'dart:typed_data';
 import 'package:bloc/bloc.dart';
 import 'package:dashboard/modules/chats/model/repo/database_repo.dart';
 import 'package:meta/meta.dart';
