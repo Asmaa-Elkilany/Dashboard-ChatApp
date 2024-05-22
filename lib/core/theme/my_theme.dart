@@ -49,7 +49,8 @@ class MyTheme {
       ),
     buttonTheme: const ButtonThemeData(
      colorScheme: ColorScheme.light(
-       background: Colors.purple
+       background: Colors.purple,
+
      )
     ),
     textTheme:   const TextTheme(
@@ -57,13 +58,17 @@ class MyTheme {
           color: Colors.black,
           fontSize: 15,
           fontWeight:FontWeight.bold,
-        )
+        ),
     ),
+
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all<Color>(Colors.purple),
+
         ),
-      )
+
+      ),
+
   );
 
   ThemeData dark = ThemeData.dark(useMaterial3: true).copyWith(
@@ -111,7 +116,7 @@ class MyTheme {
       ),
       buttonTheme:  ButtonThemeData(
           colorScheme: ColorScheme.dark(
-              background: Colors.deepPurple.shade900
+              background: Colors.deepPurple.shade900,
           )
       ),
       textTheme: const TextTheme(
@@ -119,6 +124,7 @@ class MyTheme {
             color: Colors.white,
             fontSize: 15,
             fontWeight:FontWeight.bold,
+          //  height: 5,
           )
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
